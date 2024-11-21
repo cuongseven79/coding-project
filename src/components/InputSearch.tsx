@@ -12,19 +12,18 @@ const InputSearch:React.FC<InputSearchProps> = ({
 }) => {
     const [inputValue, setInputValue] = React.useState<string>('');
     const debouncedSearchQuery = useDebounce(inputValue, 500);
-  
   useEffect(()=>{
     onSearch(debouncedSearchQuery)
   },[debouncedSearchQuery, onSearch])
   
   return (
-    <div>
+    <div className={`${className} w-[50%] rounded-md`}>
       <input
           type='text'
           placeholder='Search Product...'
           value={inputValue}
           onChange={(e)=>setInputValue(e.target.value)}
-          className={`${className}border-2 border-gray-300 p-2 rounded-md w-full`}
+          className={`border-gray-300 p-4 rounded-md w-full`}
           />
     </div>
   )
